@@ -29,24 +29,30 @@ public class E3_3 {
     }
 */
     //新做法
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("输入a b c d e f");
         double[] in = new double[6];
-        for (int i=1;i<=6;i+=1){
-            in[i-1]= input.nextDouble();
+        for (int i = 1; i <= 6; i += 1) {
+            in[i - 1] = input.nextDouble();
         }
-        double[] out =linear_equation_2_2(in);
-        if (out.length == 2) {
-            double x = out[0];
-            double y = out[1];
-            System.out.print("x="+x+",y="+y);
+        double[] out = linear_equation_2_2(in);
+        switch (out.length) {
+            case 2: {
+                double x = out[0];
+                double y = out[1];
+                System.out.print("x=" + x + ",y=" + y);
+                break;
+            }
+            case 1:
+                System.out.print("无解");
+                break;
+            case 0: {
+                //后面发现不会出现这种情况，输入不到6个程序就不会继续运行
+                System.out.print("输入错误");
+                break;
+            }
         }
-        else if(out.length == 1)
-            System.out.print("无解");
-        else if(out.length == 0)
-            //后面发现不会出现这种情况，输入不到6个程序就不会继续运行
-            System.out.print("输入错误");
     }
     public static double[] linear_equation_2_2(double[] in) {
         if (in.length != 6) {
