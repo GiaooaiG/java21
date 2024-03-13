@@ -10,7 +10,7 @@ package test;
 public class calculateDistance {
     public static double calculateDistance(double[] arr1,double[] arr2){
             double distance;
-            distance=Math.pow(Math.pow(arr1[0]-arr2[0],2)+Math.pow(arr1[1]-arr2[1],2),0.5);
+            distance=Math.sqrt(Math.pow(arr1[0]-arr2[0],2)+Math.pow(arr1[1]-arr2[1],2));
             return distance;
     }
 }

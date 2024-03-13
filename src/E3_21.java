@@ -10,13 +10,15 @@ public class E3_21 {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         System.out.print("输入年份：");
-        int year = input.nextInt();
-        int month;
+        int inputYear = input.nextInt();
+        int inputMonth;
         do {
             System.out.print("输入月份：");
-            month = input.nextInt();
-        }while(month<1||month>12);
-        switch (month){
+            inputMonth = input.nextInt();
+        }while(inputMonth<1||inputMonth>12);
+        int month=inputMonth;
+        int year=inputYear;
+        switch (inputMonth){
             case 1:{
                 year -= 1;
                 month = 13;
@@ -36,14 +38,17 @@ public class E3_21 {
         //h是“星期几”
         int h;
         h = (day + 26*(month+1)/10 + (year%100) + (year%100)/ 4+ (year/100) / 4 + (year/100)* 5 )%7;
-        switch (h){
-            case 0:System.out.print("今天是星期六");break;
-            case 1:System.out.print("今天是星期天");break;
-            case 2:System.out.print("今天是星期一");break;
-            case 3:System.out.print("今天是星期二");break;
-            case 4:System.out.print("今天是星期三");break;
-            case 5:System.out.print("今天是星期四");break;
-            case 6:System.out.print("今天是星期五");break;
-        }
+        //java12的新特性
+        String weekDay = switch (h) {
+            case 0 -> "六";
+            case 1 -> "天";
+            case 2 -> "一";
+            case 3 -> "二";
+            case 4 -> "三";
+            case 5 -> "四";
+            case 6 -> "五";
+            default -> "";
+        };
+        System.out.print(inputYear+"年"+inputMonth+"月"+day+"日是星期"+weekDay);
     }
 }

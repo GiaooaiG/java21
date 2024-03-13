@@ -2,7 +2,7 @@
 import java.util.Scanner;
 public class E2_2 {
     public static void main(String[] args){
-        final double PI = 3.14159;
+        final double PI = Math.PI;
         Scanner input = new Scanner(System.in);
         System.out.println("输入圆柱体的底面半径和高：");
         double r = input.nextDouble();
