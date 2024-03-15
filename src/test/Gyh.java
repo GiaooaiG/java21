@@ -1,12 +1,4 @@
 package test;
-
-/**
- * @author Gyh
- * @version 1.0
- * @project java21
- * @description 一些工具
- * @date 2024/03/15 11:50:23
- */
 public class Gyh {
 
     //判断一个数是否在数组里
