@@ -6,6 +6,7 @@
  * @date 2024/03/08 16:46:55
  */
 import java.util.*;
+import test.*;
 public class L3_8 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -18,7 +19,7 @@ public class L3_8 {
             int num = input.nextInt();
             if (num < 1 || num > 36) {
                 System.out.println("输入的数字不在1-36范围内!");
-            } else if (contains(inputNum, num)) {
+            } else if (Gyh.contains(inputNum, num)) {
                 System.out.println("输入的数字有重复！");
             } else {
                 inputNum[i - 1] = num;
@@ -30,11 +31,12 @@ public class L3_8 {
         i = 1;
         while (i <= 7) {
             int randomNum;
-            do{
+            //判断一个数是否在数组里
+            do {
                 randomNum = (r.nextInt(37) + 1);
-            }while(contains(winningNum,randomNum));
-                winningNum[i-1] = randomNum;
-                i += 1;
+            } while (Gyh.contains(winningNum, randomNum));
+            winningNum[i - 1] = randomNum;
+            i += 1;
         }
         System.out.println("现在开始公布号码：");
         System.out.println("你选择的号码为：");
@@ -50,26 +52,16 @@ public class L3_8 {
                     matchingNum += 1;
             }
         }
-        System.out.println("\n相同的数字数为："+matchingNum);
-        if(matchingNum<=3){
-            System.out.print("很遗憾，你没中奖");
-        } else if (matchingNum==4) {
-            System.out.print("恭喜你，你中了四等奖！");
-        }else if (matchingNum==5) {
-            System.out.print("恭喜你，你中了三等奖！");
-        }else if (matchingNum==6) {
-            System.out.print("恭喜你，你中了二等奖！");
-        }else if (matchingNum==7) {
-            System.out.print("恭喜你，你中了一等奖！");
-        }
-    }
-    //判断一个数是否在数组里
-    public static boolean contains(int[] arr,int num){
-        for(int i:arr) {
-            if (i == num) {
-                return true;
-            }
-        }
-        return false;
+        System.out.println("\n相同的数字数为：" + matchingNum);
+        String prize = switch (matchingNum) {
+            case 7 -> "一";
+            case 6 -> "二";
+            case 5 -> "三";
+            case 4 -> "四";
+            case 3 -> "五";
+            case 2 -> "六";
+            default -> "七";
+        };
+        System.out.print("恭喜你，你中了" + prize + "等奖！");
     }
 }
