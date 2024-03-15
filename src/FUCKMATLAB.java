@@ -16,11 +16,12 @@ public class FUCKMATLAB {
         }while(a<0);
         double x=1;
         int i=0;
-        outer:while (true){
+        while (true){
             double x1;
             x1 = 0.5d *(x+a/x);
             if(Math.abs(x1-x)<=10e-5){
-                break outer;
+                x=x1;
+                break ;
             }else{
                 i+=1;
             }
