@@ -1,4 +1,7 @@
 package test;
+
+import java.util.Random;
+
 public class Gyh {
 
     //判断一个数是否在数组里
@@ -94,5 +97,33 @@ public class Gyh {
             case 12 -> "十二月";
             default -> "";
         };
+    }
+
+    //随机打乱数组元素
+    public static int[] Shuffle(int[] arr){
+        Random r = new Random();
+        for(int i = 0;i < arr.length;i++){
+            int j = r.nextInt(arr.length);
+            int temp = arr[i];
+            arr[i]= arr[j];
+            arr[j]=temp;
+        }
+        return arr;
+    }
+
+    //Bubble Sort
+    public static int[] Bubble_Sort(int[] arr){
+        int n = arr.length;
+        for(int a=1;a<= arr.length;a++) {
+            for (int i = 1; i < n; i++) {
+                if (arr[i] < arr[i - 1]) {
+                    int temp = arr[i - 1];
+                    arr[i - 1] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+            n-=1;
+        }
+        return arr;
     }
 }

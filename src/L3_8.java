@@ -33,7 +33,7 @@ public class L3_8 {
             int randomNum;
             //判断一个数是否在数组里
             do {
-                randomNum = (r.nextInt(37) + 1);
+                randomNum = (r.nextInt(36) + 1);
             } while (Gyh.contains(winningNum, randomNum));
             winningNum[i - 1] = randomNum;
             i += 1;
