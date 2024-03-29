@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class E5_1 {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		System.out.println("输入数字，空格结束");
+		System.out.println("输入数字，输入0结束");
 		int in=0,sum=0,numOfP=0,numOfN=0;
 		do {
 			in=input.nextInt();
