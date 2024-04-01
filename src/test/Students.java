@@ -1,9 +1,9 @@
 package test;
 
 public class Students {
-    String name;
-    int score;
-    long number;
+    public String name;
+    public int score;
+    public long number;
 
     public Students(String newName){
         name = newName;
@@ -15,9 +15,5 @@ public class Students {
 
     public void newScore(int newScore){
         score=newScore;
-    }
-
-    public String getName(){
-        return name;
     }
 }
