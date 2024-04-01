@@ -100,7 +100,7 @@ public class Gyh {
     }
 
     //随机打乱数组元素
-    public static int[] Shuffle(int[] arr){
+    public static int[] shuffle(int[] arr){
         Random r = new Random();
         for(int i = 0;i < arr.length;i++){
             int j = r.nextInt(arr.length);
@@ -112,7 +112,7 @@ public class Gyh {
     }
 
     //Bubble Sort
-    public static int[] Bubble_Sort(int[] arr){
+    public static int[] bubbleSort(int[] arr){
         int n = arr.length;
         for(int a=1;a<= arr.length;a++) {
             for (int i = 1; i < n; i++) {
@@ -125,5 +125,21 @@ public class Gyh {
             n-=1;
         }
         return arr;
+    }
+
+    //返回数组的平均数
+    public static double average(int[] arr){
+        int sum=0;
+        for(int i:arr){
+            sum += i;
+        }
+        return sum/(double)arr.length;
+    }
+    public static double average(double[] arr){
+        double sum=0;
+        for(double i:arr){
+            sum += i;
+        }
+        return sum/(double)arr.length;
     }
 }

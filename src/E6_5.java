@@ -10,6 +10,6 @@ public class E6_5 {
         for(int i=0;i<=2;i++){
             in[i]=input.nextInt();
         }
-        System.out.print((Arrays.toString(Gyh.Bubble_Sort(in))));
+        System.out.print((Arrays.toString(Gyh.bubbleSort(in))));
     }
 }
