@@ -3,6 +3,7 @@ package test;
 import java.util.Random;
 
 public class Gyh {
+    private Gyh(){}
 
     //判断一个数是否在数组里
     public static boolean contains(int[] arr, int num) {
