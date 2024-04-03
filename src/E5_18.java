@@ -1,5 +1,5 @@
 //打印图案
-public class E5_12 {
+public class E5_18 {
     public static void main(String[] args){
         a();
         System.out.println();
