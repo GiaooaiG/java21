@@ -115,7 +115,7 @@ public class Gyh {
     //Bubble Sort
     public static int[] bubbleSort(int[] arr){
         int n = arr.length;
-        for(int a=1; a< arr.length;a++) {
+        for(int a=1; a < arr.length;a++) {
             for (int i = 1; i < n; i++) {
                 if (arr[i] < arr[i - 1]) {
                     int temp = arr[i - 1];
@@ -129,7 +129,7 @@ public class Gyh {
     }
     public static double[] bubbleSort(double[] arr){
         int n = arr.length;
-        for(int a=1; a< arr.length;a++) {
+        for(int a=1; a < arr.length;a++) {
             for (int i = 1; i < n; i++) {
                 if (arr[i] < arr[i - 1]) {
                     double temp = arr[i - 1];
