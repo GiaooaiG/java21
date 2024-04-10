@@ -1,7 +1,7 @@
 public class E9_9 {
     public static void main(String[] args) {
-        RegularPolygon a = new RegularPolygon(4, 1);
-        System.out.print(a.getArea());
+        RegularPolygon a = new RegularPolygon(114, 514);
+        System.out.println(a.getArea());
     }
 }
 
@@ -73,5 +73,17 @@ class RegularPolygon {
     //返回面积
     public double getArea() {
         return (n * Math.pow(side, 2)) / 4 * Math.tan(Math.PI / n);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o.getClass() != this.getClass()) {
+            return false;
+        } else {
+            return this.getN() == ((RegularPolygon) o).getN()
+                    & this.getSide() == ((RegularPolygon) o).getSide()
+                    & this.getX() == ((RegularPolygon) o).getX()
+                    & this.getY() == ((RegularPolygon) o).getY();
+        }
     }
 }
