@@ -6,6 +6,7 @@ public class E10_3 {
     }
 }
 
+//二维点类
 class MyPoint {
     private final double x, y;
 
