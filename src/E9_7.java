@@ -65,15 +65,16 @@ class Account {
         amount = abs(amount);
         if (balance > amount) {
             setBalance(getBalance() - amount);
-            System.out.println("Success");
+            System.out.println("取款成功");
         } else {
-            System.out.println("INSUFFICIENT BALANCE!");
+            System.out.println("余额不足！");
         }
     }
 
     public void deposit(double amount) {
         amount = abs(amount);
         setBalance(getBalance() + amount);
+        System.out.println("存款成功");
     }
 
     public double getMonthlyInterestRate() {
