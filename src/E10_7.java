@@ -7,13 +7,13 @@ public class E10_7 {
         Scanner input = new Scanner(System.in);
         final Account[] ACCOUNTS = new Account[10];
         for (int i = 0; i < 10; i++) {
-            ACCOUNTS[i]=new Account(i,100);
+            ACCOUNTS[i] = new Account(i, 100);
         }
 
-        int id,choice;
-        id=askForID();
+        int id, choice;
+        id = askForID();
         //设置了id为-1时退出
-        while(id!=-1) {
+        while (id != -1) {
             printMenu();
             choice = askForChoice();
             switch (choice) {
@@ -22,7 +22,11 @@ public class E10_7 {
                     continue;
                 case 2: {
                     System.out.println("请输入取款金额：");
-                    ACCOUNTS[id].withDraw(input.nextDouble());
+                    try {
+                        ACCOUNTS[id].withDraw(input.nextDouble());
+                    } catch (Exception exception) {
+                        System.out.println(exception.getMessage());
+                    }
                     continue;
                 }
                 case 3: {
@@ -32,39 +36,41 @@ public class E10_7 {
                 }
                 case 4:
                     System.out.println("注销成功\n");
-                    id=askForID();
+                    id = askForID();
             }
         }
     }
 
     //设置了id为-1时退出，所以允许-1输入
-    private static int askForID(){
+    private static int askForID() {
         Scanner input = new Scanner(System.in);
         System.out.print("请输入id：");
         int in;
-        in=input.nextInt();
-        if((in<0&in!=-1)|in>9){
-            do{
+        in = input.nextInt();
+        if ((in < 0 & in != -1) | in > 9) {
+            do {
                 System.out.print("id范围为0-9，请重新输入id：");
-                in=input.nextInt();
-            }while((in<0&in!=-1)|in>9);
+                in = input.nextInt();
+            } while ((in < 0 & in != -1) | in > 9);
         }
         return in;
     }
-    private static int askForChoice(){
+
+    private static int askForChoice() {
         Scanner input = new Scanner(System.in);
         System.out.print("请选择：");
         int in;
-        in=input.nextInt();
-        if(in<1|in>4){
-            do{
+        in = input.nextInt();
+        if (in < 1 | in > 4) {
+            do {
                 System.out.print("选择范围为1-4，请重新输入选择：");
-                in=input.nextInt();
-            }while(in<0|in>9);
+                in = input.nextInt();
+            } while (in < 0 | in > 4);
         }
         return in;
     }
-    private static void printMenu(){
+
+    private static void printMenu() {
         System.out.println("\n主菜单");
         System.out.println("1:查询余额");
         System.out.println("2:取款");

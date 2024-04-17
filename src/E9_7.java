@@ -1,11 +1,15 @@
 import java.util.Date;
-import static java.lang.Math.abs;
+
 
 public class E9_7 {
     public static void main(String[] args) {
         Account a = new Account(1122, 20000);
         a.setAnnualInterestRate(4.5);
-        a.withDraw(2500);
+        try {
+            a.withDraw(2500);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
         a.deposit(3000);
         System.out.println("Balance: " + a.getBalance());
         System.out.println("MonthlyInterest: " + a.getMonthlyInterest());
@@ -34,7 +38,9 @@ class Account {
     }
 
     public void setAnnualInterestRate(double annualInterestRate) {
-        if (annualInterestRate > 0) {
+        if (annualInterestRate < 0) {
+            throw new IllegalArgumentException("输入不能为负数");
+        } else {
             this.annualInterestRate = annualInterestRate;
         }
     }
@@ -44,7 +50,9 @@ class Account {
     }
 
     public void setBalance(double balance) {
-        if (balance > 0) {
+        if (balance < 0) {
+            throw new IllegalArgumentException("输入不能为负数");
+        } else {
             this.balance = balance;
         }
     }
@@ -61,20 +69,22 @@ class Account {
         return this.dateCreated;
     }
 
-    public void withDraw(double amount) {
-        amount = abs(amount);
-        if (balance > amount) {
-            setBalance(getBalance() - amount);
-            System.out.println("取款成功");
+    public void withDraw(double amount) throws Exception {
+        if (amount < 0) {
+            throw new IllegalArgumentException("输入不能为负数");
+        } else if (balance < amount) {
+            throw new Exception("余额不足");
         } else {
-            System.out.println("余额不足！");
+            setBalance(getBalance() - amount);
         }
     }
 
     public void deposit(double amount) {
-        amount = abs(amount);
-        setBalance(getBalance() + amount);
-        System.out.println("存款成功");
+        if (amount < 0) {
+            throw new IllegalArgumentException("输入不能为负数");
+        } else {
+            setBalance(getBalance() + amount);
+        }
     }
 
     public double getMonthlyInterestRate() {
