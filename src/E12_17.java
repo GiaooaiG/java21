@@ -38,16 +38,8 @@ public class E12_17 {
             System.out.println("成功！");
             System.out.println("猜错次数：" + n);
             System.out.println("是否继续？");
-            outer: while (true) {
-                int i = input.nextInt();
-                switch (i) {
-                    case 0:
-                        break outer;
-                    case 1:
-                        System.exit(0);
-                    default:
-                        System.out.println("输入0继续，输入1结束");
-                }
+            if(input.nextInt()==0){
+                break;
             }
         }
     }
