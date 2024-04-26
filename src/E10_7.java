@@ -5,9 +5,9 @@ public class E10_7 {
     public static void main(String[] args) {
         //初始化
         Scanner input = new Scanner(System.in);
-        final Account[] ACCOUNTS = new Account[10];
+        final SavingsAccount[] SavingsACCOUNTS = new SavingsAccount[10];
         for (int i = 0; i < 10; i++) {
-            ACCOUNTS[i] = new Account(i, 100);
+            SavingsACCOUNTS[i] = new SavingsAccount(i, 100);
         }
 
         int id, choice;
@@ -18,12 +18,12 @@ public class E10_7 {
             choice = askForChoice();
             switch (choice) {
                 case 1:
-                    System.out.println("余额为：" + ACCOUNTS[id].getBalance());
+                    System.out.println("余额为：" + SavingsACCOUNTS[id].getBalance());
                     continue;
                 case 2: {
                     System.out.println("请输入取款金额：");
                     try {
-                        ACCOUNTS[id].withDraw(input.nextDouble());
+                        SavingsACCOUNTS[id].withDraw(input.nextDouble());
                     } catch (Exception exception) {
                         System.out.println(exception.getMessage());
                     }
@@ -31,7 +31,7 @@ public class E10_7 {
                 }
                 case 3: {
                     System.out.println("请输入存款金额：");
-                    ACCOUNTS[id].deposit(input.nextDouble());
+                    SavingsACCOUNTS[id].deposit(input.nextDouble());
                     continue;
                 }
                 case 4:
