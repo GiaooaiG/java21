@@ -10,6 +10,5 @@ public class E11_2 {
         System.out.println(c);
         System.out.println(d);
         System.out.print(e);
-
     }
 }
