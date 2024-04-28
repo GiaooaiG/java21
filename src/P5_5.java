@@ -1,4 +1,4 @@
-public class P6_5 {
+public class P5_5 {
     public static void main(String[] args) {
         try {
             System.out.println("Before  method1 call");
