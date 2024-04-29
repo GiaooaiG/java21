@@ -10,9 +10,7 @@ public class E12_15 {
         file.delete();
         Random random = new Random();
         try (PrintWriter printWriter = new PrintWriter(file)) {
-            if (!file.exists()) {
-                file.createNewFile();
-            }
+            file.createNewFile();
             for (int i = 0; i < 10; i++) {
                 printWriter.print(random.nextInt(101));
                 printWriter.print(" ");
@@ -20,8 +18,7 @@ public class E12_15 {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        try {
-            Scanner scanner = new Scanner(file);
+        try (Scanner scanner = new Scanner(file)){
             do {
                 System.out.println(scanner.nextInt());
             } while (scanner.hasNext());
