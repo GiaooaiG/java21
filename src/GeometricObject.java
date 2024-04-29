@@ -98,7 +98,7 @@ class Triangle extends GeometricObject implements Cloneable {
 }
 
 //正n边形类
-class RegularPolygon {
+class RegularPolygon extends GeometricObject implements Cloneable{
 
     //n:边数 side:边长 x:中心点x坐标 y:中心点y坐标
     public int n;
@@ -177,5 +177,10 @@ class RegularPolygon {
                     & this.getX() == ((RegularPolygon) o).getX()
                     & this.getY() == ((RegularPolygon) o).getY();
         }
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
