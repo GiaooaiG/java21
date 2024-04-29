@@ -1,4 +1,4 @@
-public abstract class GeometricObject {
+public abstract class GeometricObject implements Comparable<GeometricObject>{
     private boolean filled;
     private String color;
 
@@ -21,6 +21,12 @@ public abstract class GeometricObject {
 
     public String getColor() {
         return color;
+    }
+
+    public abstract double getArea();
+
+    public int compareTo(GeometricObject geometricObject){
+        return Double.compare(this.getArea(), geometricObject.getArea());
     }
 
     public void setColor(String color) {
