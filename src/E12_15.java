@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,12 +20,15 @@ public class E12_15 {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        ArrayList<Integer> nums = new ArrayList<>(10);
         try (Scanner scanner = new Scanner(file)){
             do {
-                System.out.println(scanner.nextInt());
+                nums.add(scanner.nextInt());
             } while (scanner.hasNext());
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
+        nums.sort(Comparator.naturalOrder());
+        System.out.println(nums);
     }
 }
