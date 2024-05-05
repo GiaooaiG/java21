@@ -1,10 +1,5 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Random;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class E12_15 {
     public static void main(String[] args) {
