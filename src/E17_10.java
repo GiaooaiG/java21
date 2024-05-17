@@ -1,9 +1,9 @@
 import java.io.*;
 import java.util.ArrayList;
-
+//有 bug ，没法正常写入
 public class E17_10 {
     public static void main(String[] args) throws IOException {
-        Spilt.main(new String[]{"src/test/Copy.txt", "3"});
+        Spilt.main(new String[]{"src/test/Gyh.java", "3"});
         System.exit(0);
     }
 }
@@ -28,30 +28,36 @@ class Spilt {
             System.out.println("NumberOfPieces must be greater than 0");
             System.exit(4);
         }
-        ArrayList<File> targetFiles = new ArrayList<>();
+
+
         ArrayList<BufferedOutputStream> outputStreams = new ArrayList<>();
-        try {
+        ArrayList<File> targetFiles = new ArrayList<>();
+        try (
+                BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(sourceFile))
+        ) {
             for (int i = 1; i <= numberOfPieces; i++) {
                 targetFiles.add(new File(args[0] + "." + i));
-                outputStreams.add(new BufferedOutputStream(new FileOutputStream(targetFiles.get(i - 1))));
+            }
+            for(File file : targetFiles){
+                outputStreams.add(new BufferedOutputStream(new FileOutputStream(file)));
             }
             for (File targetFile : targetFiles) {
                 targetFile.delete();
                 targetFile.createNewFile();
             }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.exit(5);
-        }
-        try (
-                BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(sourceFile))
-        ) {
             int i;
             int sourceFileBytes = inputStream.available();
             for (BufferedOutputStream outputStream : outputStreams) {
-                for (int j = 0; (j < sourceFileBytes / numberOfPieces) & ((i = inputStream.read()) != -1); j++) {
+                int bytesWritten = 0;
+                while ((i = inputStream.read()) != -1){
+                    System.out.println("Write:"+(byte)i);
                     outputStream.write((byte) i);
-                }
+                    bytesWritten+=1;
+                        if (bytesWritten >= sourceFileBytes/numberOfPieces){
+                            break;
+                        }
+                    }
+                outputStream.close();
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -61,7 +67,7 @@ class Spilt {
                 outputStream.close();
             }
         }
-        System.out.println("finish");
+        System.out.println("Finished");
         System.exit(0);
     }
 }

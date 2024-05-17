@@ -1,5 +1,6 @@
 package test;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Gyh {
@@ -138,6 +139,20 @@ public class Gyh {
                 }
             }
             n-=1;
+        }
+        return arr;
+    }
+    public static <T extends Comparable<T>> ArrayList<T> bubbleSort(ArrayList<T> arrayList){
+        ArrayList<T> arr = (ArrayList<T>) arrayList.clone();
+        int n = arr.size();
+        for (int i = 1; i < arr.size(); i++) {
+            for (int j = 1; j < n ; j++ ){
+                if (arr.get(j) .compareTo(arr.get(j-1)) < 0){
+                    T temp = arr.get(j);
+                    arr.set(j, arr.get(j-1));
+                    arr.set(j-1,temp);
+                }
+            }
         }
         return arr;
     }
